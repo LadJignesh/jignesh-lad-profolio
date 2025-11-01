@@ -4,11 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --base-href ./ --configuration production",
+    "build": "ng build --base-href /jignesh-lad-profolio/ --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist/portfolio-app"
+    "deploy": "gh-pages -d dist/portfolio-app/browser"
   },
   "prettier": {
     "overrides": [
