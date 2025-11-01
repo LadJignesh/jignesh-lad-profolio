@@ -17,7 +17,7 @@
       </ul>
       
       <div class="nav-actions">
-        <a href="/resume.pdf" target="_blank" class="btn btn-outline">Resume</a>
+        <a href="assets/documents/resume.pdf" (click)="downloadResume($event)" class="btn btn-outline">Resume</a>
         <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" [attr.aria-expanded]="isMobileMenuOpen">
           <span class="hamburger-line"></span>
           <span class="hamburger-line"></span>

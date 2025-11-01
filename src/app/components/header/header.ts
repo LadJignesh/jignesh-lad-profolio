@@ -18,6 +18,14 @@ export class Header implements OnInit {
     this.isScrolled = window.pageYOffset > 50;
   }
 
+  downloadResume(event: Event) {
+    event.preventDefault();
+    const baseUrl = window.location.origin;
+    const projectPath = '/jignesh-lad-profolio'; // Add this for GitHub Pages
+    const resumePath = `${baseUrl}${projectPath}/assets/documents/resume.pdf`;
+    window.open(resumePath, '_blank');
+  }
+
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
