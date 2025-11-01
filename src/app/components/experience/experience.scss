@@ -1,0 +1,312 @@
+.experience {
+  background: var(--background);
+}
+
+.experience-intro {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto 4rem;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border);
+    transform: translateX(-50%);
+  }
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 3rem;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  .timeline-marker {
+    position: absolute;
+    left: 50%;
+    top: 2rem;
+    transform: translateX(-50%);
+    z-index: 2;
+    
+    .timeline-dot {
+      width: 16px;
+      height: 16px;
+      background: var(--primary);
+      border-radius: 50%;
+      border: 4px solid var(--background);
+      box-shadow: 0 0 0 4px var(--border);
+    }
+  }
+  
+  .experience-card {
+    width: calc(50% - 2rem);
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    padding: 2rem;
+    transition: var(--transition);
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+      border-color: var(--primary);
+    }
+  }
+  
+  // Default positioning (even items - right side)
+  .experience-card {
+    margin-left: auto;
+  }
+  
+  // Odd items go to the left side
+  &.odd {
+    .experience-card {
+      margin-left: 0;
+      margin-right: auto;
+    }
+  }
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 1rem;
+  
+  .experience-title-section {
+    flex: 1;
+    
+    .experience-title {
+      font-size: 1.3rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .experience-company {
+      font-size: 1.1rem;
+      color: var(--primary);
+      margin: 0;
+      font-weight: 500;
+    }
+  }
+  
+  .experience-duration {
+    .duration-badge {
+      background: rgba(100, 255, 218, 0.1);
+      color: var(--primary);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      border: 1px solid rgba(100, 255, 218, 0.2);
+      white-space: nowrap;
+    }
+  }
+}
+
+.experience-content {
+  .experience-achievements {
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+    
+    li {
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 0.75rem;
+      position: relative;
+      
+      &::marker {
+        color: var(--primary);
+      }
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  
+  .experience-tech {
+    .tech-label {
+      display: block;
+      color: var(--text-primary);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      font-size: 0.9rem;
+    }
+    
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      
+      .tech-tag {
+        background: rgba(100, 255, 218, 0.1);
+        color: var(--primary);
+        padding: 0.25rem 0.75rem;
+        border-radius: 16px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        font-family: 'JetBrains Mono', monospace;
+        border: 1px solid rgba(100, 255, 218, 0.2);
+      }
+    }
+  }
+}
+
+.experience-summary {
+  .summary-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    background: var(--surface);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    
+    .stat-item {
+      text-align: center;
+      
+      .stat-number {
+        display: block;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+        font-family: 'JetBrains Mono', monospace;
+      }
+      
+      .stat-label {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timeline {
+    &::before {
+      left: 2rem;
+    }
+  }
+  
+  .timeline-item {
+    .timeline-marker {
+      left: 2rem;
+      transform: translateX(-50%);
+    }
+    
+    .experience-card {
+      width: calc(100% - 4rem);
+      margin-left: 4rem !important;
+      margin-right: 0 !important;
+    }
+    
+    &.odd .experience-card {
+      margin-left: 4rem !important;
+    }
+  }
+  
+  .experience-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    
+    .experience-duration {
+      align-self: flex-end;
+    }
+  }
+  
+  .experience-summary .summary-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    
+    .stat-item .stat-number {
+      font-size: 2rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-item .experience-card {
+    padding: 1.5rem;
+    width: calc(100% - 3rem);
+    margin-left: 3rem !important;
+  }
+  
+  .timeline-item .timeline-marker {
+    left: 1.5rem;
+  }
+  
+  .timeline::before {
+    left: 1.5rem;
+  }
+  
+  .experience-header {
+    .experience-title {
+      font-size: 1.2rem;
+    }
+    
+    .experience-company {
+      font-size: 1rem;
+    }
+    
+    .duration-badge {
+      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+    }
+  }
+  
+  .experience-summary .summary-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.5rem;
+    
+    .stat-item .stat-number {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+/* Animation */
+.timeline-item {
+  opacity: 0;
+  animation: slideInUp 0.6s ease forwards;
+  
+  &:nth-child(1) { animation-delay: 0.1s; }
+  &:nth-child(2) { animation-delay: 0.2s; }
+  &:nth-child(3) { animation-delay: 0.3s; }
+  &:nth-child(4) { animation-delay: 0.4s; }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

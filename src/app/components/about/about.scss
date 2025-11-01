@@ -1,0 +1,249 @@
+.about {
+  background: var(--background-light);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.about-text {
+  p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    
+    &:last-of-type {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+  
+  .stat {
+    text-align: center;
+    
+    .stat-number {
+      display: block;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+  }
+}
+
+.about-image {
+  display: flex;
+  justify-content: center;
+  
+  .image-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    
+    .image-placeholder {
+      width: 100%;
+      height: 100%;
+      background: var(--surface);
+      border-radius: 12px;
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      
+      .tech-icons {
+        .icon-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1rem;
+          
+          .tech-icon {
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: rgba(100, 255, 218, 0.1);
+            border-radius: 8px;
+            animation: iconFloat 3s ease-in-out infinite;
+            
+            &:nth-child(odd) {
+              animation-delay: 0.5s;
+            }
+            
+            &:nth-child(3n) {
+              animation-delay: 1s;
+            }
+          }
+        }
+      }
+    }
+    
+    .image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      opacity: 0.1;
+      border-radius: 12px;
+      transition: var(--transition);
+    }
+    
+    &:hover .image-overlay {
+      opacity: 0.2;
+    }
+  }
+}
+
+.services {
+  .services-title {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: var(--surface);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  text-align: center;
+  transition: var(--transition);
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+    border-color: var(--primary);
+  }
+  
+  .service-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  
+  h4 {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+  
+  p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+}
+
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .about-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    
+    .stat {
+      .stat-number {
+        font-size: 1.5rem;
+      }
+      
+      .stat-label {
+        font-size: 0.8rem;
+      }
+    }
+  }
+  
+  .about-image {
+    order: -1;
+    
+    .image-container {
+      width: 250px;
+      height: 250px;
+      
+      .image-placeholder .tech-icons .icon-grid {
+        gap: 0.5rem;
+        
+        .tech-icon {
+          width: 50px;
+          height: 50px;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-stats {
+    .stat {
+      .stat-number {
+        font-size: 1.3rem;
+      }
+      
+      .stat-label {
+        font-size: 0.75rem;
+      }
+    }
+  }
+  
+  .about-image .image-container {
+    width: 200px;
+    height: 200px;
+    
+    .image-placeholder .tech-icons .icon-grid {
+      .tech-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

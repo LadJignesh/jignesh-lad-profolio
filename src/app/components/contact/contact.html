@@ -1,0 +1,136 @@
+<section class="contact section" id="contact">
+  <div class="container">
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="contact-intro">
+      I'm always interested in new opportunities and exciting projects. 
+      Whether you're looking to build something amazing or need technical consultation, 
+      let's start a conversation.
+    </p>
+    
+    <div class="contact-content">
+      <div class="contact-info">
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </div>
+          <h3>Email</h3>
+          <p>jignesh.lad@example.com</p>
+          <a href="mailto:jignesh.lad@example.com" class="contact-link">Send Email</a>
+        </div>
+        
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </div>
+          <h3>LinkedIn</h3>
+          <p>Connect with me professionally</p>
+          <a href="https://linkedin.com/in/jigneshlad" target="_blank" class="contact-link">View Profile</a>
+        </div>
+        
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+          </div>
+          <h3>GitHub</h3>
+          <p>Check out my code</p>
+          <a href="https://github.com/jigneshlad" target="_blank" class="contact-link">View Projects</a>
+        </div>
+      </div>
+      
+      <div class="contact-form-section">
+        <form class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              [(ngModel)]="formData.name"
+              required 
+              placeholder="Your full name"
+              class="form-control"
+            >
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              [(ngModel)]="formData.email"
+              required 
+              placeholder="your.email@example.com"
+              class="form-control"
+            >
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Subject *</label>
+            <input 
+              type="text" 
+              id="subject" 
+              name="subject" 
+              [(ngModel)]="formData.subject"
+              required 
+              placeholder="What's this about?"
+              class="form-control"
+            >
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              [(ngModel)]="formData.message"
+              required 
+              rows="6" 
+              placeholder="Tell me about your project or inquiry..."
+              class="form-control"
+            ></textarea>
+          </div>
+          
+          <button 
+            type="submit" 
+            class="btn btn-primary"
+            [disabled]="!contactForm.form.valid || isSubmitting"
+          >
+            @if (isSubmitting) {
+              <span class="spinner"></span>
+              Sending...
+            } @else {
+              Send Message
+            }
+          </button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="availability">
+      <div class="availability-card">
+        <div class="availability-icon">🚀</div>
+        <h3>Available for Projects</h3>
+        <p>
+          I'm currently accepting new projects and consultation opportunities. 
+          Let's discuss how I can help bring your ideas to life with cutting-edge technology.
+        </p>
+        <div class="availability-tags">
+          <span class="tag">Web Development</span>
+          <span class="tag">Technical Consultation</span>
+          <span class="tag">Code Review</span>
+          <span class="tag">Architecture Planning</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

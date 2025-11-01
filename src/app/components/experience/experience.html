@@ -1,0 +1,68 @@
+<section class="experience section" id="experience">
+  <div class="container">
+    <h2 class="section-title">Work Experience</h2>
+    <p class="experience-intro">
+      My professional journey and the impact I've made at different organizations
+    </p>
+    
+    <div class="timeline">
+      @for (exp of experiences; track exp.id; let isOdd = $odd) {
+        <div class="timeline-item" [class.odd]="isOdd">
+          <div class="timeline-marker">
+            <div class="timeline-dot"></div>
+          </div>
+          
+          <div class="experience-card">
+            <div class="experience-header">
+              <div class="experience-title-section">
+                <h3 class="experience-title">{{ exp.title }}</h3>
+                <h4 class="experience-company">{{ exp.company }}</h4>
+              </div>
+              <div class="experience-duration">
+                <span class="duration-badge">{{ exp.duration }}</span>
+              </div>
+            </div>
+            
+            <div class="experience-content">
+              <ul class="experience-achievements">
+                @for (achievement of exp.description; track achievement) {
+                  <li>{{ achievement }}</li>
+                }
+              </ul>
+              
+              <div class="experience-tech">
+                <span class="tech-label">Technologies:</span>
+                <div class="tech-list">
+                  @for (tech of exp.technologies; track tech) {
+                    <span class="tech-tag">{{ tech }}</span>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+    
+    <div class="experience-summary">
+      <div class="summary-stats">
+        <div class="stat-item">
+          <span class="stat-number">6+</span>
+          <span class="stat-label">Years of Experience</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">4</span>
+          <span class="stat-label">Companies Worked With</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">50+</span>
+          <span class="stat-label">Projects Delivered</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">10+</span>
+          <span class="stat-label">Technologies Mastered</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
